@@ -10,7 +10,7 @@
                <option *ngFor="let option of question.options">{{ option }}</option>
             </select>
             <div class="align-right" style="padding-top: 2.5rem;">
-               <button (click)="test()" class="btn btn-primary">next!</button>
+               <button (click)="save($event)" class="btn btn-primary">next!</button>
             </div>
          </div>
       </div>

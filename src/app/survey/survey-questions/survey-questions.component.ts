@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./survey-questions.component.scss']
 })
 export class SurveyQuestionsComponent implements OnInit {
+  submit = false;
 
   questions = [{
     question: "What kind of habit do you want to form?",
@@ -23,7 +24,15 @@ export class SurveyQuestionsComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  save(event: any) {
+    this.questions.forEach(question => {
+      this.questions[0].response = event.target.value;
+      if (this.questions[].response) this.submit = true;
+    });
+    
 
+  }
 }
 
 
