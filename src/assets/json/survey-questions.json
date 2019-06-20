@@ -1,0 +1,32 @@
+[
+    {
+    "question": "What kind of habit do you want to form?",
+    "options": [
+      "Exercise (swimming, running, going to the gym)", 
+      "Wellness (getting more sleep, eating more veggies, meditating)",
+      "Work (study more, read etc)",
+      "Misc (languge learning, gardening etc)"
+    ],
+    "response": ""
+  },
+    {
+    "question": "Let's get specific! What exactly do you want implement as a new habit?",
+    "options": "",
+    "response": ""
+  },
+    {
+    "question": "How frequently do you plan on implementing this new habit?",
+    "options": [ "Daily", "Weekly", "Monthly"],
+    "response": ""
+  },
+    {
+    "question": "How confident are you on a scale of 1-10 that you will perform your habit at your specified frequency?",
+    "options": "",
+    "response": ""
+  },
+    {
+    "question": "Hmm that's not very confident. Maybe you should decrease the frequency!",
+    "options": [ "Decrease", "I got this" ],
+    "response": ""
+  }
+]

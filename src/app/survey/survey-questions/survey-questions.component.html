@@ -1,0 +1,104 @@
+<div class="container">
+   <form #surveyForm="ngForm">
+      <div class="form-group">
+         <div *ngFor="let question of questions" class="card">
+            <label for="option" class="card-header">
+               {{ question.question }}
+            </label>
+            <br>
+            <select class="form-control" name="option" [(ngModel)]="question.response" required>
+               <option *ngFor="let option of question.options">{{ option }}</option>
+            </select>
+            <div class="align-right" style="padding-top: 2.5rem;">
+               <button (click)="test()" class="btn btn-primary">next!</button>
+            </div>
+         </div>
+      </div>
+         <!-- 
+         <ng-container>
+            <div class="card">
+               <h4 class="card-header">
+                  Let's get specific! What exactly do you want implement as a new habit?
+               </h4>
+               <input type="text" name="habitName">
+               <div class="align-right" style="padding-top: 2.5rem;">
+                  <button [disabled]="habitName === null" (click)="habitsSubject = false; habitsName = true"
+                     class="btn btn-primary">next!</button>
+               </div>
+            </div>
+         </ng-container>
+         <ng-container>
+            <div class="card">
+               <h4 class="card-header">
+                  How frequently do you plan on implementing this new habit?
+               </h4>
+               <select required>
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+               </select>
+               <div class="align-right" style="padding-top: 2.5rem;">
+                  <button (click)="habitsName = false; habitFreq = true" class="btn btn-primary">next!</button>
+               </div>
+            </div>
+         </ng-container>
+         <ng-container>
+            <div class="card">
+               <h4 class="card-header">
+                  How confident are you on a scale of 1-10 that you will perform your habit at your specified frequency?
+               </h4>
+               <br />
+               <div class="rating-scale">
+                  <label>
+                     <input type="radio" name="freq" value="1" /><span>1</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="freq" value="2" /><span>2</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="freq" value="3" /><span>3</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="freq" value="4" /><span>4</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="freq" value="5" /><span>5</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="freq" value="6" /><span>6</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="freq" value="7" /><span>7</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="freq" value="8" /><span>8</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="freq" value="9" /><span>9</span>
+                  </label>
+                  <label>
+                     <input type="radio" name="freq" value="10" /><span>10</span>
+                  </label>
+               </div>
+               <div class="align-right">
+                  <button (click)="habitFreq = false; habitEval = true" class="btn btn-primary">next!</button>
+               </div>
+            </div>
+         </ng-container>
+         <ng-container *ngIf="freq">
+            <div class="card">
+               <h4 class="card-header">
+                  Hmm that's not very confident. Maybe you should decrease the frequency!
+               </h4>
+               <select required>
+                  <option value="daily">Decrease</option>
+                  <option value="weekly">I got this</option>
+               </select>
+               <div class="align-right" style="padding-top: 2.5rem;">
+                  <button class="btn btn-primary">next!</button>
+               </div>
+            </div>
+         </ng-container> -->
+
+   </form>
+</div>
