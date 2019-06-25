@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-survey',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SurveyComponent implements OnInit {
 
-  constructor( ) { }
+  changed: boolean;
+
+  constructor(private router: Router) {
+    this.changed = false;
+  }
+
+  navToInfoPage() {
+    this.changed = true;
+    setTimeout(() => {
+      this.router.navigateByUrl('survey-questions');
+    }, 2000); 
+  }
 
   ngOnInit() {
   }
-  
+
 }

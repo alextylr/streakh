@@ -1,41 +1,58 @@
+@import "../../../assets/utilities/variables";
 
-
-$border: solid 1px #fff;
+button {
+  &:active {
+    background: $secondary;
+  }
+  &:focus {
+    outline: 0;
+    background: $secondary;
+  }
+  &.button:disabled,
+  &.button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+}
 
 .rating-scale {
   display: block;
   font-size: 0;
-   
+
   & span {
     display: inline-block;
     box-sizing: border-box;
     text-align: center;
-    padding: .3em .8em;
-    font-size: 26px;
-    font-weight:100;
-    width:4em;
-    background: #337ab7;
+    padding: 0.3em 0.8em;
+    font-size: 24px;
+    font-weight: 100;
+    width: 2.4em;
+    background: #6700ff;
     color: #eee;
-    
+
     border-top: $border;
     border-bottom: $border;
     border-right: $border;
   }
-  
+
   & label:first-child span {
     border-left: $border;
   }
-  
+
   & input[type="radio"] {
     display: none;
-    
+
     &:checked ~ span {
-      background: #286090;
+      background: #090e69;
       color: #fff;
- }
+    }
   }
- 
 }
 .align-right {
-    text-align: right !important;
+  text-align: right !important;
+}
+
+label.card-header {
+  padding-bottom: 0.645rem;
 }
