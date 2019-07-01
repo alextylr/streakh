@@ -1,32 +1,52 @@
 [
-    {
+  {
     "question": "What kind of habit do you want to form?",
     "options": [
-      "Exercise (swimming, running, going to the gym)", 
-      "Wellness (getting more sleep, eating more veggies, meditating)",
-      "Work (study more, read etc)",
-      "Misc (languge learning, gardening etc)"
+      "exercise",
+      "wellness",
+      "work",
+      "misc"
     ],
-    "response": ""
+    "optionDescription": [
+      "(swimming, running, going to the gym)",
+      "(getting more sleep, eating more veggies, meditating)",
+      "(study more, read etc)",
+      "(languge learning, gardening etc)"
+    ],
+    "response": "",
+    "inputType": "select"
   },
-    {
+  {
     "question": "Let's get specific! What exactly do you want implement as a new habit?",
-    "options": "",
-    "response": ""
+    "options": [],
+    "response": "",
+    "inputType": "text"
   },
-    {
+  {
     "question": "How frequently do you plan on implementing this new habit?",
-    "options": [ "Daily", "Weekly", "Monthly"],
-    "response": ""
+    "options": [
+      "daily",
+      "weekly",
+      "monthly"
+    ],
+    "response": "",
+    "inputType": "select"
   },
-    {
+  {
     "question": "How confident are you on a scale of 1-10 that you will perform your habit at your specified frequency?",
-    "options": "",
-    "response": ""
+    "options": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    "response": 0,
+    "inputType": "scale",
+    "alternatePath": true
   },
-    {
+  {
     "question": "Hmm that's not very confident. Maybe you should decrease the frequency!",
-    "options": [ "Decrease", "I got this" ],
-    "response": ""
+    "options": [
+      "Decrease",
+      "I got this"
+    ],
+    "response": "",
+    "inputType": "select"
+
   }
 ]

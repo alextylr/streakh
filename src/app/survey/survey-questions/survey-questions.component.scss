@@ -19,6 +19,7 @@ button {
 .rating-scale {
   display: block;
   font-size: 0;
+  padding-top: 2rem;
 
   & span {
     display: inline-block;
@@ -27,7 +28,7 @@ button {
     padding: 0.3em 0.8em;
     font-size: 24px;
     font-weight: 100;
-    width: 2.4em;
+    width: 70px;
     background: #6700ff;
     color: #eee;
 
@@ -53,6 +54,3 @@ button {
   text-align: right !important;
 }
 
-label.card-header {
-  padding-bottom: 0.645rem;
-}

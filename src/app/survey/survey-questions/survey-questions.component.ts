@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { SurveyService } from 'src/assets/services/streak.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-survey-questions',
@@ -6,69 +8,83 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./survey-questions.component.scss']
 })
 export class SurveyQuestionsComponent implements OnInit {
-  submit = true;
-  count = 0;
-  results: boolean;
+  submit: boolean = true;
+  count: number = 0;
+  results = [];
+  done: boolean = false;
 
-  questions = [
-    {
-      question: 'What kind of habit do you want to form?',
-      options: [
-        'Exercise (swimming, running, going to the gym)',
-        'Wellness (getting more sleep, eating more veggies, meditating)',
-        'Work (study more, read etc)',
-        'Misc (languge learning, gardening etc)'
-      ],
-      response: '',
-      inputType: 'select'
-    },
-    {
-      question: 'Let\'s get specific! What exactly do you want implement as a new habit?',
-      options: '',
-      response: '',
-      inputType: 'text'
-    },
-    {
-      question: 'How frequently do you plan on implementing this new habit?',
-      options: [
-        'Daily',
-        'Weekly',
-        'Monthly'
-      ],
-      response: '',
-      inputType: 'select'
-    },
-    {
-      question: 'How confident are you on a scale of 1-10 that you will perform your habit at your specified frequency?',
-      options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-      response: '',
-      inputType: 'scale'
-    },
-    {
-      question: 'Hmm that\'s not very confident. Maybe you should decrease the frequency!',
-      options: [
-        'Decrease',
-        'I got this'
-      ],
-      response: '',
-      inputType: 'select'
-    }
-  ]
+  questions = [];
 
-  constructor() {
+  constructor(private survey: SurveyService, private router: Router) {
   }
 
   ngOnInit() {
+    this.survey.getSurvey().subscribe(survey => this.questions = survey);
   }
 
-  helpMe() {
-    this.count < 5 ? this.count++ : this.count = 0;
+  helpMe(index: any) {
+    //go through questions, and look for an alternate path
+
+    //if there is an alternate path, follow that path
+
+    //then push all responses to results array
+
+    this.results.push(this.questions[index].response);
+
+    if (this.results[2] && this.count < this.questions.length - 2) {
+      this.optionsPlzHelp();
+    }
+
+    if (this.check()) {
+      this.done = true;
+    }
+
+    if (this.questions[index].alternatePath && this.questions[index].response <= 7) {
+      ++this.count;
+    }
+
+    else if (this.questions[index].alternatePath && this.questions[index].response > 7) {
+      this.count += 2;
+      this.done = true;
+    }
+    else {
+      ++this.count;
+    }
   }
+
+  check() {
+    if (this.count === this.questions.length - 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  checkBool() {
+    return this.done;
+  }
+
+  optionsPlzHelp() {
+    if (this.results[2] === 'daily' || this.results[2] === 'weekly') {
+      const newHelp = this.questions[2].options.indexOf(this.results[2]);
+      this.questions[4].options[0] = 'Decrease to ' + this.questions[2].options[newHelp + 1];
+      if (this.results[4] != 'I got this') {
+        this.results[2] = this.questions[2].options[newHelp + 1];
+      }
+    }
+  }
+
+  leavePlz() {
+    this.router.navigateByUrl('track');
+  }
+
 }
-
 
 export class Question {
   question: string;
-  options?: string[];
-  response?: string;
+  options?: [];
+  optionDescription?: [];
+  response?: any;
+  inputType: string;
+  alternatePath?: boolean;
 }

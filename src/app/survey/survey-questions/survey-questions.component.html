@@ -3,36 +3,47 @@
       <div *ngFor="let question of questions; let i = index" class="form-group">
          <ng-container *ngIf="i === count">
             <div class="card">
-               <label for="option" class="card-header">
+               <mat-label for="option" class="card-header">
                   {{ question.question }}
-               </label>
+               </mat-label>
                <ng-container *ngIf="question.inputType === 'select'">
-                  <select class="form-control" name="habitSubject" [(ngModel)]="question.response" required>
-                     <option value="" disabled selected>Select your option</option>
-                     <option *ngFor="let option of question.options">{{ option }}</option>
-                  </select>
+                  <mat-form-field>
+                     <mat-select name="habitSubject" [(ngModel)]="question.response">
+                        <mat-option value="" disabled selected>Select your option</mat-option>
+                        <mat-option *ngFor="let option of question.options; let in = index" [value]="option">
+                           {{ option }} <span *ngIf="question.optionDescription"> {{ question.optionDescription[in] }}
+                           </span></mat-option>
+                     </mat-select>
+                  </mat-form-field>
                </ng-container>
                <ng-container *ngIf="question.inputType === 'text'">
-                  <input type="text" name="habitName" class="form-control" [(ngModel)]="question.response">
+                  <mat-form-field>
+                     <input matInput type="text" name="habitName" [(ngModel)]="question.response">
+                  </mat-form-field>
                </ng-container>
                <ng-container *ngIf="question.inputType === 'scale'">
                   <div class="rating-scale">
                      <label *ngFor="let option of question.options">
-                        <input class="form-control" type="radio" name="freq"
-                           [(ngModel)]="question.response" value="{{ option }}" />
+                        <input class="form-control" type="radio" name="freq" [(ngModel)]="question.response"
+                           value="{{ option }}" />
                         <span>{{ option }}</span>
                      </label>
                   </div>
                </ng-container>
-               <div class="align-right" style="padding-top: 2.5rem;">
-                  <button (click)="helpMe()" class="btn btn-primary" [disabled]="!question.response">next!</button>
+               <div class="align-right" style="padding-top: 3rem;">
+                  <button (click)="helpMe(i)" class="btn btn-primary" [disabled]="!question.response">next!</button>
                </div>
             </div>
          </ng-container>
       </div>
-      <div *ngIf="results">
+      <div *ngIf="checkBool()">
          <h2>Commit to your habit!</h2>
-
+         <p>You decided to create a new <span class="text-bold">{{ results[0] }}</span> habit!
+            You are going to implement, <span class="text-bold">{{ results[1] }}</span>, on a <span
+               class="text-bold">{{ results[2] }}</span> basis! Confirm below to start your streak!</p>
+         <div class="align-right" style="padding-top: 3rem;">
+            <button (click)="leavePlz(i)" class="btn btn-primary">let's do this!</button>
+         </div>
       </div>
    </form>
 </div>
