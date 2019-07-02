@@ -1,19 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import "src/assets/utilities/variables";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* angular-cli file: src/styles.css */
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 * {
   font-family: $font;
 }
 
-html, 
+html,
 body {
-    height: 100%;
+  height: 100%;
 }
 body {
-background: #6190E8;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #6190e8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #a7bfe8,
+    #6190e8
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #a7bfe8,
+    #6190e8
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .container {
@@ -32,7 +42,7 @@ background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, F
 .btn-primary {
   color: #fff;
   font-size: 2rem;
-  background-color:$secondary;
+  background-color: $secondary;
   border-color: $secondary;
   &:active,
   &:focus,
@@ -43,22 +53,23 @@ background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, F
   &[disabled] {
     background-color: rgba(178, 178, 178, 1);
     border-color: rgba(178, 178, 178, 1);
-  } &[disabled]:hover {
+  }
+  &[disabled]:hover {
     background-color: rgba(178, 178, 178, 1);
     border-color: rgba(178, 178, 178, 1);
   }
 }
 
 // angular material overrides
-mat-{
-  &form-field,&select {
+mat- {
+  &form-field,
+  &select {
     display: block !important;
     font-size: 1.5rem;
   }
   &label.card-header {
     font-size: 2rem;
   }
-
 }
 .mat- {
   &input-element {
@@ -68,6 +79,53 @@ mat-{
 
 .text-bold {
   font-weight: 700;
-  color: dodgerblue;
-  font-size: 1.5rem;
+  color: #6190e8;
 }
+
+/* calendar styles */
+.cal-month-view {
+  height: 100%;
+  .cal-day-cell {
+    &.cal-weekend {
+      .cal-day-number {
+        color: #3f51b5;
+      }
+    }
+    &.cal-today {
+      background-color: #6190e845;
+      .cal-day-number {
+        font-size: 1.2em;
+      }
+    }
+  }
+  .cal-cell-top {
+    min-height: 8em;
+  }
+}
+mwl-calendar-month-view {
+  background: #fff;
+}
+
+.cal-head {
+  h4 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+    padding: 2rem;
+    background: #fff;
+  }
+}
+
+.streak {
+  font-size: 2rem;
+  padding: 3.5rem;
+  background: #fff;
+  height: 100%;
+}
+
+/* utils */ 
+.padding-none {
+  padding: 0 !important;
+}
+
+

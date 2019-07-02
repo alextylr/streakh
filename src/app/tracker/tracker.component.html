@@ -1,3 +1,43 @@
-<p>
-  tracker works!
-</p>
+<mwl-calendar-month-view-header [days]="columnHeaders" [locale]="locale"
+  (columnHeaderClicked)="columnHeaderClicked.emit($event)" [customTemplate]="headerTemplate">
+  <ng-template #headerTemplate>
+    <div class="cal-head">
+      <h4>{{ now }} </h4>
+    </div>
+  </ng-template>
+</mwl-calendar-month-view-header>
+<ng-template #customCellTemplate let-day="day" let-locale="locale">
+  <div class="cal-cell-top">
+    <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
+    <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+  </div>
+</ng-template>
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="streak">
+      <p>
+        have you completed your habit yet?
+      </p>
+      <p>
+        if so, log your streak!
+      </p>
+      <!-- <p> your current <br> streak is<span class="text-bold"> idfk </span>! -->
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div [ngSwitch]="view">
+      <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events"
+        (beforeViewRender)="updateCalendarEvents($event)">
+      </mwl-calendar-month-view>
+      <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events">
+      </mwl-calendar-week-view>
+      <mwl-calendar-day-view *ngSwitchCase="'day'" [viewDate]="viewDate" [events]="events">
+      </mwl-calendar-day-view>
+    </div>
+  </div>
+  <div class="col-md-3">
+
+    <!-- <app-tracker></app-tracker> -->
+  </div>
+</div>

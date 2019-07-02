@@ -15,6 +15,8 @@ import { WelcomeComponent } from './survey/welcome/welcome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SurveyService } from 'src/assets/services/streak.service';
 import { TrackerComponent } from './tracker/tracker.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { TrackerComponent } from './tracker/tracker.component';
     BrowserAnimationsModule,
     MatSelectModule,
     HttpClientModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     RouterModule.forRoot([
       { path: 'survey', component: SurveyComponent },
       { path: 'welcome', component: WelcomeComponent },
