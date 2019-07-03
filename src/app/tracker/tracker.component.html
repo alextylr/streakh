@@ -20,15 +20,16 @@
         have you completed your habit yet?
       </p>
       <p>
-        if so, log your streak!
+        if so, log your streak! 
       </p>
-      <!-- <p> your current <br> streak is<span class="text-bold"> idfk </span>! -->
+      <div *ngFor="let result of results">
+        <label> {{ result }} </label>
+      </div>
     </div>
   </div>
   <div class="col-md-6">
     <div [ngSwitch]="view">
-      <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events"
-        (beforeViewRender)="updateCalendarEvents($event)">
+      <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events">
       </mwl-calendar-month-view>
       <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events">
       </mwl-calendar-week-view>

@@ -3,6 +3,7 @@ import { CalendarEvent } from 'angular-calendar';
 import * as moment from 'moment';
 import { RRule, RRuleSet, rrulestr } from 'rrule'
 import { getMonthView } from 'calendar-utils';
+import { ResultsService } from 'src/assets/services/results.service';
 
 @Component({
   selector: 'app-tracker',
@@ -19,15 +20,15 @@ export class TrackerComponent implements OnInit {
 
   @Input() headerTemplate: TemplateRef<any>;
 
-  @Input() results: [];
+  @Input() results: any[];
 
   now: string;
 
-
-  constructor() { }
+  constructor(private result: ResultsService) { }
 
   ngOnInit() {
     this.now = moment().format('MMMM YYYY');
+    this.results = this.result.getResults();
   }
 
 

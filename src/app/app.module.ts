@@ -17,6 +17,7 @@ import { SurveyService } from 'src/assets/services/streak.service';
 import { TrackerComponent } from './tracker/tracker.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { ResultsService } from 'src/assets/services/results.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
       { path: '', redirectTo: '/welcome', pathMatch: 'full' }
     ])
   ],
-  providers: [SurveyService],
+  providers: [SurveyService, ResultsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

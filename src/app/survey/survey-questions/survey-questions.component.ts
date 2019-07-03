@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { SurveyService } from 'src/assets/services/streak.service';
 import { Router } from '@angular/router';
+import { ResultsService } from 'src/assets/services/results.service';
 
 @Component({
   selector: 'app-survey-questions',
@@ -12,35 +13,38 @@ export class SurveyQuestionsComponent implements OnInit {
   count: number = 0;
   results = [];
   done: boolean = false;
-
   questions = [];
 
-  constructor(private survey: SurveyService, private router: Router) {
+  constructor(
+    private survey: SurveyService, 
+    private router: Router, 
+    private result: ResultsService) {
   }
 
   ngOnInit() {
     this.survey.getSurvey().subscribe(survey => this.questions = survey);
+    this.results = this.result.getResults();
+    console.log(this.results);
   }
 
   helpMe(index: any) {
-    //go through questions, and look for an alternate path
-
-    //if there is an alternate path, follow that path
-
-    //then push all responses to results array
-
     this.results.push(this.questions[index].response);
-
-    if (this.results[2] && this.count < this.questions.length - 2) {
-      this.optionsPlzHelp();
-    }
-
+    
     if (this.check()) {
       this.done = true;
     }
+  
+    // if (this.results[2] && this.count < this.questions.length - 2) {
+    //   debugger;
+    //   this.optionsPlzHelp();
+    // }
 
     if (this.questions[index].alternatePath && this.questions[index].response <= 7) {
       ++this.count;
+      if (this.results[2] && this.count < this.questions.length - 2) {
+        debugger;
+        this.optionsPlzHelp();
+      }
     }
 
     else if (this.questions[index].alternatePath && this.questions[index].response > 7) {
@@ -54,6 +58,7 @@ export class SurveyQuestionsComponent implements OnInit {
 
   check() {
     if (this.count === this.questions.length - 1) {
+      this.result.setResults(this.results);
       return true;
     } else {
       return false;
@@ -69,7 +74,10 @@ export class SurveyQuestionsComponent implements OnInit {
       const newHelp = this.questions[2].options.indexOf(this.results[2]);
       this.questions[4].options[0] = 'Decrease to ' + this.questions[2].options[newHelp + 1];
       if (this.results[4] != 'I got this') {
+        // debugger;
         this.results[2] = this.questions[2].options[newHelp + 1];
+      } else {
+        this.results[2] = this.questions[2].options[newHelp];
       }
     }
   }
