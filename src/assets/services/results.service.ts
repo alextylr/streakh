@@ -16,9 +16,9 @@ export class ResultsService {
 
     public setResults(array: any[]) {
         for (let i = 0; i < array.length - 1; i++) {
-            debugger;
+            // debugger;
             this.results[i] = array[i];
         }
-        console.log(this.results);
+        // console.log(this.results);
     }
 }

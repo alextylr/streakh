@@ -7,7 +7,7 @@ export class SurveyService {
 
    constructor(private http: HttpClient) {
         this.getSurvey().subscribe(data => {
-            console.log(data);
+            // console.log(data);
         });
     }
 

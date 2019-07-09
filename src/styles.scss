@@ -13,17 +13,11 @@ body {
   height: 100%;
 }
 body {
-  background: #6190e8; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #a7bfe8,
-    #6190e8
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #a7bfe8,
-    #6190e8
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #B993D6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+
 }
 
 .container {
@@ -44,15 +38,17 @@ body {
   font-size: 2rem;
   background-color: $secondary;
   border-color: $secondary;
-  &:active,
-  &:focus,
+  &:active:focus,
   &:hover {
     background-color: $active;
     border-color: $active;
+    outline: 2px auto rgba(78, 84, 140, 1);
+    outline-offset: -3px;
   }
   &[disabled] {
     background-color: rgba(178, 178, 178, 1);
     border-color: rgba(178, 178, 178, 1);
+    outline: none;
   }
   &[disabled]:hover {
     background-color: rgba(178, 178, 178, 1);

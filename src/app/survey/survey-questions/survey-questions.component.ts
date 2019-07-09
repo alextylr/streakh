@@ -16,44 +16,40 @@ export class SurveyQuestionsComponent implements OnInit {
   questions = [];
 
   constructor(
-    private survey: SurveyService, 
-    private router: Router, 
+    private survey: SurveyService,
+    private router: Router,
     private result: ResultsService) {
   }
 
   ngOnInit() {
     this.survey.getSurvey().subscribe(survey => this.questions = survey);
     this.results = this.result.getResults();
-    console.log(this.results);
   }
 
   helpMe(index: any) {
     this.results.push(this.questions[index].response);
-    
+
     if (this.check()) {
       this.done = true;
     }
-  
-    // if (this.results[2] && this.count < this.questions.length - 2) {
-    //   debugger;
-    //   this.optionsPlzHelp();
-    // }
 
-    if (this.questions[index].alternatePath && this.questions[index].response <= 7) {
-      ++this.count;
-      if (this.results[2] && this.count < this.questions.length - 2) {
-        debugger;
-        this.optionsPlzHelp();
-      }
+    if (this.results[2] && this.count <= this.questions.length - 1) {
+      this.optionsPlzHelp();
     }
 
-    else if (this.questions[index].alternatePath && this.questions[index].response > 7) {
+    if (this.questions[index].alternatePath && this.questions[index].response < 7) {
+      ++this.count;
+    }
+
+    else if (this.questions[index].alternatePath && this.questions[index].response >= 7) {
       this.count += 2;
       this.done = true;
     }
+  
     else {
       ++this.count;
     }
+  
   }
 
   check() {
@@ -73,12 +69,20 @@ export class SurveyQuestionsComponent implements OnInit {
     if (this.results[2] === 'daily' || this.results[2] === 'weekly') {
       const newHelp = this.questions[2].options.indexOf(this.results[2]);
       this.questions[4].options[0] = 'Decrease to ' + this.questions[2].options[newHelp + 1];
-      if (this.results[4] != 'I got this') {
-        // debugger;
+    
+      if (this.results[4] && this.results[4] != 'I got this') {
         this.results[2] = this.questions[2].options[newHelp + 1];
-      } else {
+      } 
+      
+      else if (this.results[4] && this.results[4] === 'I got this') {
         this.results[2] = this.questions[2].options[newHelp];
       }
+
+    } 
+
+    else {
+      this.count += 2;
+      this.done = true;
     }
   }
 
