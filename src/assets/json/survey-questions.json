@@ -8,16 +8,16 @@
       "misc"
     ],
     "optionDescription": [
-      "(swimming, running, going to the gym)",
-      "(getting more sleep, eating more veggies, meditating)",
-      "(study more, read etc)",
-      "(languge learning, gardening etc)"
+      "(swim, run, workout)",
+      "(listen to lizzo, eat healthy, meditate,)",
+      "(study, read, sort email)",
+      "(study a language, garden, practice Brazilian Jiu Jitsu)"
     ],
     "response": "",
     "inputType": "select"
   },
   {
-    "question": "Let's get specific! What exactly do you want implement as a new habit?",
+    "question": "Get specific! We'll get talk about how often you're gonna do it ater, for now let's just give it a name! For example: Run",
     "options": [],
     "response": "",
     "inputType": "text"

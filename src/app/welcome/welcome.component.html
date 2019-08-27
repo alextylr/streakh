@@ -1,0 +1,20 @@
+<ng-container *ngIf="welcome">
+  <div class="container-fluid sec1" id="welcome">
+    <div class="row">
+      <div class="box">
+        <p [ngClass]="isLoaded ? 'welcome fade-in' : 'welcome fade-out'">Streakh!</p>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="start">
+  <div [ngClass]="changed ? 'fade-out' :'fade-in'">
+    <p class='title'>hi! welcome to streakh</p>
+    <div class='notthebody'>streakh is designed to help you implement new habits into your daily routine by helping you
+      define the habit you want to implement, set a goal that is easily achievable, and track your progress!!</div>
+    <div class='notthebody'>
+      <button class='button' (click)="navToInfoPage()"><span>Lets get started!</span></button>
+    </div>
+  </div>
+</ng-container>

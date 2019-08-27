@@ -20,16 +20,18 @@
         have you completed your habit yet?
       </p>
       <p>
-        if so, log your streak! 
+        if so, log your streak!
       </p>
-      <div *ngFor="let result of results">
-        <label> {{ result }} </label>
-      </div>
+      <button class="btn btn-primary" (click)="addEvent()">
+       log!
+      </button>
     </div>
   </div>
   <div class="col-md-6">
     <div [ngSwitch]="view">
-      <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events">
+      <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+        [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
       </mwl-calendar-month-view>
       <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events">
       </mwl-calendar-week-view>
@@ -38,7 +40,5 @@
     </div>
   </div>
   <div class="col-md-3">
-
-    <!-- <app-tracker></app-tracker> -->
   </div>
 </div>
