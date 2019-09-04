@@ -18,6 +18,7 @@ import { TrackerComponent } from './tracker/tracker.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ResultsService } from 'src/assets/services/results.service';
+import { ModalModule, BsModalRef } from  'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ResultsService } from 'src/assets/services/results.service';
     MatSliderModule,
     MatFormFieldModule,
     MatInputModule,
+    ModalModule.forRoot(),
     BrowserAnimationsModule,
     MatSelectModule,
     HttpClientModule,
@@ -46,7 +48,7 @@ import { ResultsService } from 'src/assets/services/results.service';
       { path: '', redirectTo: '/welcome', pathMatch: 'full' }
     ])
   ],
-  providers: [SurveyService, ResultsService],
+  providers: [SurveyService, ResultsService, BsModalRef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
