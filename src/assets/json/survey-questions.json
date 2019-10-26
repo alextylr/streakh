@@ -9,7 +9,7 @@
     ],
     "optionDescription": [
       "(swim, run, workout)",
-      "(listen to lizzo, eat healthy, meditate)",
+      "(eat healthy, meditate, listen to lizzo)",
       "(study, read, sort email)",
       "(study a language, garden, practice Brazilian Jiu Jitsu)"
     ],
@@ -17,13 +17,13 @@
     "inputType": "select"
   },
   {
-    "question": "Let's get specific! We'll talk about frequencey later, for now let's just give it a name! For example: Study Mandarin",
+    "question": "Let's give it a name! For example: Study Mandarin",
     "options": [],
     "response": "",
     "inputType": "text"
   },
   {
-    "question": "How frequently do you plan on implementing this new habit?",
+    "question": "How often would you want to implement this new habit?",
     "options": [
       "daily",
       "weekly",
@@ -33,7 +33,7 @@
     "inputType": "select"
   },
   {
-    "question": "How confident are you on a scale of 1-10 that you will perform your habit at your specified frequency?",
+    "question": "How confident are you on a scale of 1-10 that you will be able to implement your habit at your specified frequency?",
     "options": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
     "response": 0,
     "inputType": "scale",
