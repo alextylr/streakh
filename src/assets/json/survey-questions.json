@@ -9,7 +9,7 @@
     ],
     "optionDescription": [
       "(swim, run, workout)",
-      "(listen to lizzo, eat healthy, meditate,)",
+      "(listen to lizzo, eat healthy, meditate)",
       "(study, read, sort email)",
       "(study a language, garden, practice Brazilian Jiu Jitsu)"
     ],
@@ -17,7 +17,7 @@
     "inputType": "select"
   },
   {
-    "question": "Get specific! We'll get talk about how often you're gonna do it ater, for now let's just give it a name! For example: Run",
+    "question": "Let's get specific! We'll talk about frequencey later, for now let's just give it a name! For example: Study Mandarin",
     "options": [],
     "response": "",
     "inputType": "text"
@@ -40,7 +40,7 @@
     "alternatePath": true
   },
   {
-    "question": "Hmm that's not very confident. Maybe you should decrease the frequency!",
+    "question": "Hmm that's not very confident. It is important to set small, acheivable goals that you can maintain over a long period of time. Maybe you should decrease the frequency!",
     "options": [
       "Decrease",
       "I got this"

@@ -3,15 +3,11 @@ import { CalendarEvent, CalendarView, CalendarEventAction, CalendarEventTimesCha
 import * as moment from 'moment';
 import {
   startOfDay,
-  endOfDay,
-  subDays,
-  addDays,
-  endOfMonth,
-  isSameDay,
-  isSameMonth,
-  addHours
+  endOfDay
 } from 'date-fns';
 import { ResultsService } from 'src/assets/services/results.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+
 
 @Component({
   selector: 'app-tracker',
@@ -27,16 +23,17 @@ export class TrackerComponent implements OnInit {
   @Input() results: any[];
 
   now: string;
-  
+
   // to do : implement modal popup when user logs their streak
-  // @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
+  @ViewChild('modalContent') modalContent: TemplateRef<any>;
+  modalRef: BsModalRef;
 
   view: CalendarView = CalendarView.Month;
 
   CalendarView = CalendarView;
 
   viewDate: Date = new Date();
-  
+
   modalData: {
     action: string;
     event: CalendarEvent;
@@ -59,8 +56,9 @@ export class TrackerComponent implements OnInit {
   ];
 
   activeDayIsOpen: boolean = false;
+  disableLog: boolean;
 
-  constructor(private result: ResultsService) {}
+  constructor(private result: ResultsService, private modalService: BsModalService) { }
 
 
   ngOnInit() {
@@ -88,27 +86,30 @@ export class TrackerComponent implements OnInit {
 
   handleEvent(action: string, event: CalendarEvent): void {
     console.log({ event, action });
-    // to do 
-    // this.modalData = { event, action };
+    this.modalData = { event, action };
     // this.modal.open(this.modalContent, { size: 'lg' });
   }
 
   addEvent(): void {
-   let habitName = this.results[1];
-    this.events = [
-      ...this.events,
-      {
-        title: habitName,
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors.purple,
-        draggable: false,
-        resizable: {
-          beforeStart: false,
-          afterEnd: false
+    if (this.events.length === 0) {
+      let habitName = this.results[1];
+      this.events = [
+        ...this.events,
+        {
+          title: habitName,
+          start: startOfDay(new Date()),
+          end: endOfDay(new Date()),
+          color: colors.purple,
+          draggable: false,
+          resizable: {
+            beforeStart: false,
+            afterEnd: false
+          }
         }
-      }
-    ];
+      ];
+      this.disableLog = true;
+    }   
+    this.modalRef = this.modalService.show(this.modalContent);
   }
 
   setView(view: CalendarView) {
@@ -118,12 +119,17 @@ export class TrackerComponent implements OnInit {
   deleteEvent(eventToDelete: CalendarEvent) {
     this.events = this.events.filter(event => event !== eventToDelete);
   }
+
+  close() {
+    this.modalRef.hide();
+    // alert('ugh');
+  }
 }
 
 
 const colors: any = {
-    purple: {
-      primary: '#3f51b5',
-      secondary: '#3f51b5'
-    }
-  };
+  purple: {
+    primary: '#3f51b5',
+    secondary: '#3f51b5'
+  }
+};
