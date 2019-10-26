@@ -1,5 +1,9 @@
 @import "../../assets/utilities/variables";
 
+body {
+  background: #252467;  
+} 
+
 .welcome {
     font-size: 50px;
     color: #fff;
@@ -14,7 +18,7 @@
     text-align: center;
   }
   
-  .notthebody {
+  .main {
     font-size: 20px;
     line-height: 28px;
     color: #fff;
@@ -31,7 +35,7 @@
     background-color: $primary;
     border-color: $primary;
     border-radius: 10px;
-    color: #FFFFFF;
+    color: $secondary;
     text-align: center;
     font-size: 20px;
     padding: 20px;
@@ -47,7 +51,9 @@
     }
     &:focus {
       outline: 0;
+      border-color: $secondary;
       background: $secondary;
+      color: $primary;
     }
   }
   

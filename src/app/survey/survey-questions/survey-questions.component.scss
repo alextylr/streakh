@@ -1,6 +1,12 @@
 @import "../../../assets/utilities/variables";
 
-button {
+body {
+  background: #f9f9fb;
+}
+
+button.button {
+  color: $secondary;
+
   &:active {
     background: $secondary;
   }
@@ -29,7 +35,7 @@ button {
     font-size: 24px;
     font-weight: 100;
     width: 70px;
-    background: #6700ff;
+    background: $primary;
     color: #eee;
 
     border-top: $border;
@@ -45,7 +51,7 @@ button {
     display: none;
 
     &:checked ~ span {
-      background: #090e69;
+      background: $secondary;
       color: #fff;
     }
   }
@@ -54,3 +60,13 @@ button {
   text-align: right !important;
 }
 
+.container {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  margin-top: 16rem;
+  width: 50%;
+  padding: 5rem;
+  border-radius: 3;
+  background: #fff;
+}

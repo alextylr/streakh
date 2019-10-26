@@ -12,26 +12,10 @@ html,
 body {
   height: 100%;
 }
+
 body {
-  background: #B993D6;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
-
-}
-
-.container {
-  margin: 0 auto;
-  float: none;
-  margin-bottom: 10px;
-  margin-top: 16rem;
-  width: 50%;
-  padding: 5rem;
-  background: #fff;
-  -webkit-box-shadow: 1px 0px 14px 0px rgba(78, 84, 140, 1);
-  -moz-box-shadow: 1px 0px 14px 0px rgba(78, 84, 140, 1);
-  box-shadow: 1px 0px 14px 0px rgba(78, 84, 140, 1);
-}
+  background: $secondary;  
+} 
 
 .btn-primary {
   color: #fff;
@@ -57,7 +41,7 @@ body {
 }
 
 // angular material overrides
-mat- {
+.mat- {
   &form-field,
   &select {
     display: block !important;
@@ -78,39 +62,6 @@ mat- {
   color: #6190e8;
 }
 
-/* calendar styles */
-.cal-month-view {
-  height: 100%;
-  .cal-day-cell {
-    &.cal-weekend {
-      .cal-day-number {
-        color: #3f51b5;
-      }
-    }
-    &.cal-today {
-      background-color: #6190e845;
-      .cal-day-number {
-        font-size: 1.2em;
-      }
-    }
-  }
-  .cal-cell-top {
-    min-height: 8em;
-  }
-}
-mwl-calendar-month-view {
-  background: #fff;
-}
-
-.cal-head {
-  h4 {
-    text-align: center;
-    font-size: 2rem;
-    margin: 0;
-    padding: 2rem;
-    background: #fff;
-  }
-}
 
 .streak {
   font-size: 2rem;

@@ -7,6 +7,43 @@ body {
     margin: auto;
 }
 
+/* calendar styles */
+.cal-month-view {
+    height: 100%;
+    .cal-day-cell {
+      &.cal-weekend {
+        .cal-day-number {
+          color: #3f51b5;
+        }
+      }
+      &.cal-today {
+        background-color: #6190e845;
+        .cal-day-number {
+          font-size: 1.2em;
+        }
+      }
+    }
+    .cal-cell-top {
+      min-height: 8em;
+    }
+  }
+  mwl-calendar-month-view {
+    background: #fff;
+  }
+  
+  .cal-head {
+    h4 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 0;
+      padding: 2rem;
+      background: #fff;
+    }
+  }
+
 .cal-month-view .cal-day-badge {
-    background-color: #3f51b5;
+    background-color: #252467;
+}
+h4 {
+    line-height: 1.25;
 }

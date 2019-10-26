@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatSliderModule } from '@angular/material';
+import { MatButtonModule, MatSliderModule, MatCard, MatCardModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
@@ -36,6 +36,7 @@ import { ResultsService } from 'src/assets/services/results.service';
     MatInputModule,
     BrowserAnimationsModule,
     MatSelectModule,
+    MatCardModule,
     HttpClientModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     RouterModule.forRoot([

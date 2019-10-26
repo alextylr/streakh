@@ -7,9 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
-
   isLoaded: boolean;
-
   
   constructor(private router: Router){
     this.isLoaded = true;

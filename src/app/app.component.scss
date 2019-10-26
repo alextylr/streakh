@@ -1,5 +1,7 @@
 @import "../assets/utilities/variables";
-
+body {
+  background: $secondary;  
+} 
 .welcome {
     font-size: 50px;
     color: #fff;
@@ -14,7 +16,7 @@
     text-align: center;
   }
   
-  .notthebody {
+  .main {
     font-size: 20px;
     line-height: 28px;
     color: #fff;
