@@ -5,14 +5,14 @@ body {
 } 
 .welcome {
     font-size: 50px;
-    color: $secondary;
+    color: #fff;
     padding-top: 250px;
     text-align: center;
   }
   
   .title {
     font-size: 40px;
-    color: $secondary;
+    color: #fff;
     padding-top: 100px;
     text-align: center;
   }
@@ -142,28 +142,3 @@ body {
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
   }
-
-  .welcome {
-    font-size: 50px;
-    color: $secondary;
-    padding-top: 250px;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 40px;
-    color: $secondary;
-    padding-top: 24rem;
-    text-align: center;
-  }
-  
-  .main {
-    font-size: 20px;
-    line-height: 28px;
-    color: $secondary;
-    padding-left: 250px;
-    padding-right: 250px;
-    padding-bottom: 45px;
-    text-align: center;
-  }
-  
