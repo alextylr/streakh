@@ -122,7 +122,6 @@ export class TrackerComponent implements OnInit {
 
   close() {
     this.modalRef.hide();
-    // alert('ugh');
   }
 }
 
