@@ -26,6 +26,8 @@ button.button {
   display: block;
   font-size: 0;
   padding-top: 2rem;
+  margin: 0 auto;
+  width: 80%;
 
   & span {
     display: inline-block;
@@ -34,7 +36,7 @@ button.button {
     padding: 0.3em 0.8em;
     font-size: 24px;
     font-weight: 100;
-    width: 70px;
+    width: 65px;
     background: $primary;
     color: #fff;
 
@@ -69,4 +71,8 @@ button.button {
   padding: 5rem;
   border-radius: 4px;
   background: #fff;
+}
+
+.mat-label {
+  font-size: 24px;
 }

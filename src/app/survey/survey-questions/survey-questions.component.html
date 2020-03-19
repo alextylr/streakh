@@ -38,9 +38,9 @@
       </div>
       <div *ngIf="checkBool()">
          <h2>Commit to your habit!</h2>
-         <p>You decided to create a new <span class="text-bold">{{ results[0] }}</span> habit!
+         <h4>You decided to create a new <span class="text-bold">{{ results[0] }}</span> habit!
             You are going to <span class="text-bold">{{ results[1] }}</span>, on a <span
-               class="text-bold">{{ results[2] }}</span> basis! Confirm below to start your streak!</p>
+               class="text-bold">{{ results[2] }}</span> basis! Confirm below to start your streak!</h4>
          <div class="align-right" style="padding-top: 3rem;">
             <button (click)="leavePlz(i)" class="btn btn-primary">let's do this!</button>
          </div>

@@ -15,20 +15,7 @@
 
 <div class="row">
   <div class="col-md-3">
-    <div class="streak" *ngIf="!disableLog">
-      <p>
-        have you completed your habit yet?
-      </p>
-      <p>
-        if so, log your streak!
-      </p>
-      <button [disabled]="disableLog" class="btn btn-primary" (click)="addEvent()">
-        log!
-      </button>
-    </div>
-    <div *ngIf="disableLog" class="streak">
-      <h2>You did the thing!</h2>
-    </div>
+   
   </div>
   <div class="col-md-6">
     <div [ngSwitch]="view">
@@ -54,7 +41,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <h3>You did your <span class="text-bold">{{ results[1] }}</span> thing! Keep it up, don't break the chain!</h3>
+    <h3>You did the <span class="text-bold">{{ results[1] }}</span> thing! Keep it up, don't break the chain!</h3>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-secondary" (click)="close()">
@@ -62,3 +49,12 @@
     </button>
   </div>
 </ng-template>
+
+<div class="streak" *ngIf="!disableLog">
+  <p>have you completed your habit yet?</p>
+  <p>if so, log your streak!</p>
+  <button [disabled]="disableLog" class="btn btn-primary" (click)="addEvent()">log!</button>
+</div>
+<div *ngIf="disableLog" class="streak">
+  <h4>You did the thing!</h4>
+</div>
