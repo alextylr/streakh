@@ -4,43 +4,43 @@ body {
   background: #252467;  
 } 
 .welcome {
-    font-size: 50px;
+    font-size: 5rem;
     color: #fff;
-    padding-top: 250px;
+    padding-top: 25rem;
     text-align: center;
   }
   
   .title {
-    font-size: 40px;
+    font-size: 5rem;
     color: #fff;
-    padding-top: 100px;
+    padding-top: 10rem;
     text-align: center;
   }
   
   .main {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 2rem;
+    line-height: 2.2rem;
     color: $secondary;
-    padding-left: 250px;
-    padding-right: 250px;
-    padding-bottom: 45px;
+    padding-left: 25rem;
+    padding-right: 25rem;
+    padding-bottom: 4.5rem;
     text-align: center;
   }
   
   .button {
     font-family: $font;
     display: inline-block;
-    border-radius: 4px;
+    border-radius: .4rem;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 1rem;
     color: #FFFFFF;
     text-align: center;
-    font-size: 20px;
-    padding: 20px;
-    width: 250px;
+    font-size: 2rem;
+    padding: 2rem;
+    width: 25rem;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
+    margin: .5rem;
   }
   
   button {
@@ -64,12 +64,12 @@ body {
         position: absolute;
         opacity: 0;
         top: 0;
-        right: -20px;
+        right: -2rem;
         transition: 0.5s;
       }
     }
     &:hover span {
-      padding-right: 25px;
+      padding-right: 2.5rem;
       &:after {
         opacity: 1;
         right: 0;
