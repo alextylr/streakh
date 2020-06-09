@@ -2,7 +2,7 @@
   (columnHeaderClicked)="columnHeaderClicked.emit($event)" [customTemplate]="headerTemplate">
   <ng-template #headerTemplate>
     <div class="cal-head">
-      <h4>{{ now }} </h4>
+      <h1>{{ now }} </h1>
     </div>
   </ng-template>
 </mwl-calendar-month-view-header>
@@ -50,11 +50,11 @@
   </div>
 </ng-template>
 
-<div class="streak" *ngIf="!disableLog">
-  <p>have you completed your habit yet?</p>
-  <p>if so, log your streak!</p>
-  <button [disabled]="disableLog" class="btn btn-primary" (click)="addEvent()">log!</button>
+<div class="streakh" *ngIf="!disableLog">
+  <h2>Have you completed your habit yet?</h2>
+  <h2>if so, log your streak!</h2>
+  <button [disabled]="disableLog" class="btn btn-primary margin" (click)="addEvent()">log!</button>
 </div>
-<div *ngIf="disableLog" class="streak">
-  <h4>You did the thing!</h4>
+<div *ngIf="disableLog" class="streakh">
+  <h2>You did the thing!</h2>
 </div>

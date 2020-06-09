@@ -1,3 +1,5 @@
+@import "../../assets/utilities/variables";
+
 body {
     background: #fff !important;
 }
@@ -26,18 +28,23 @@ body {
     .cal-cell-top {
       min-height: 8em;
     }
+
   }
   mwl-calendar-month-view {
     background: #fff;
   }
-  
+  .cal-month-view .cal-header {
+    color: $secondary;
+    font-size: 2rem;
+  }
   .cal-head {
-    h4 {
+    h1 {
       text-align: center;
-      font-size: 2rem;
+      font-size: 4.2rem;
       margin: 0;
       padding: 2rem;
       background: #fff;
+      color: $secondary;
     }
   }
 
@@ -45,12 +52,20 @@ body {
     background-color: #252467;
 }
 
-h4 {
-    line-height: 1.25;
+.modal-footer, .modal-header {
+  border: none;
 }
-
-.streak {
+.streakh {
+  color: $secondary;
   margin: 0 auto;
   width: 50%;
   text-align: center;
+}
+
+.margin {
+  margin-top: 2rem;
+}
+
+.modal-body {
+  color: $secondary;
 }

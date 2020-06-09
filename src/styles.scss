@@ -47,24 +47,32 @@ mat- {
   &form-field,
   &select {
     display: block !important;
-    font-size: 1.5rem;
+    font-size: 3rem;
+    color: $secondary;
   }
   &label.card-header {
-    font-size: 2rem;
+    font-size: 3.5rem;
+    color: $secondary;
   }
 }
 .mat- {
-  &input-element {
-    font-size: 1.5rem !important;
+  &select-value-text {
+    white-space: normal;
   }
+  &option, &select-value  {
+    color: $secondary;
+  }
+ 
 }
 
 .text-bold {
   font-weight: 700;
-  color: #6190e8;
+  color: $active;
 }
 
-
+mat-select-panel .mat-option {
+  font-size: 2.5rem;
+}
 .streak {
   font-size: 2rem;
   padding: 3.5rem;
@@ -78,3 +86,160 @@ mat- {
 }
 
 
+/* app component scss */
+
+#welcome {
+    font-size: 8rem;
+    color: #fff;
+    padding-top: 25rem;
+    text-align: center;
+  }
+
+  .flex-container {
+    font-size: 4.2rem;
+    line-height: 5.2rem;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-item {
+    max-width: 50%;
+  }
+  
+  .button {
+    font-family: $font;
+    display: inline-block;
+    border-radius: .4rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 2rem;
+    padding: 2rem;
+    width: 25rem;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: .5rem;
+    span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+      &:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -2rem;
+        transition: 0.5s;
+      }
+    } &:hover span {
+      padding-right: 2.5rem;
+      &:after {
+        opacity: 1;
+        right: 0;
+      }
+    }
+  }
+  
+  button {
+    &:active {
+      background: $secondary;
+    }
+    &:focus {
+      outline: 0;
+      border-color: $secondary;
+      background: $secondary;
+      color: $primary;
+    }
+  }
+
+  .survey-handle {
+    font-family: $font;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    font-size: 4rem;
+    padding: 3rem;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    :hover {
+      transform: scale(1.1); 
+    }
+  } 
+
+  
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  
+  @-moz-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  
+  .fade-in {
+    opacity: 0;
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .fade-out {
+    -webkit-animation-name: fade-out;
+    animation-name: fade-out;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  p {
+    font-size: 1.2rem
+  } 
+
+  

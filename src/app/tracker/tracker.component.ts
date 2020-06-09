@@ -66,28 +66,27 @@ export class TrackerComponent implements OnInit {
     this.results = this.result.getResults();
   }
 
-  eventTimesChanged({
-    event,
-    newStart,
-    newEnd
-  }: CalendarEventTimesChangedEvent): void {
-    this.events = this.events.map(iEvent => {
-      if (iEvent === event) {
-        return {
-          ...event,
-          start: newStart,
-          end: newEnd
-        };
-      }
-      return iEvent;
-    });
-    this.handleEvent('Dropped or resized', event);
-  }
+  // eventTimesChanged({
+  //   event,
+  //   newStart,
+  //   newEnd
+  // }: CalendarEventTimesChangedEvent): void {
+  //   this.events = this.events.map(iEvent => {
+  //     if (iEvent === event) {
+  //       return {
+  //         ...event,
+  //         start: newStart,
+  //         end: newEnd
+  //       };
+  //     }
+  //     return iEvent;
+  //   });
+  //   this.handleEvent('Dropped or resized', event);
+  // }
 
   handleEvent(action: string, event: CalendarEvent): void {
     console.log({ event, action });
     this.modalData = { event, action };
-    // this.modal.open(this.modalContent, { size: 'lg' });
   }
 
   addEvent(): void {
@@ -107,6 +106,7 @@ export class TrackerComponent implements OnInit {
           }
         }
       ];
+      
       this.disableLog = true;
     }   
     this.modalRef = this.modalService.show(this.modalContent);

@@ -1,49 +1,51 @@
-<div class="container">
-   <form #surveyForm="ngForm">
-      <div *ngFor="let question of questions; let i = index" class="">
-         <ng-container *ngIf="i === count">
-            <div class="card">
-               <mat-label for="option" class="card-header">
-                  {{ question.question }}
-               </mat-label>
-               <ng-container *ngIf="question.inputType === 'select'">
-                  <mat-form-field>
-                     <mat-select name="habitSubject" [(ngModel)]="question.response">
-                        <mat-option value="" disabled selected>Select your option</mat-option>
-                        <mat-option *ngFor="let option of question.options; let in = index" [value]="option">
-                           {{ option }} <span *ngIf="question.optionDescription"> {{ question.optionDescription[in] }}
-                           </span></mat-option>
-                     </mat-select>
-                  </mat-form-field>
-               </ng-container>
-               <ng-container *ngIf="question.inputType === 'text'">
-                  <mat-form-field>
-                     <input matInput type="text" name="habitName" [(ngModel)]="question.response">
-                  </mat-form-field>
-               </ng-container>
-               <ng-container *ngIf="question.inputType === 'scale'">
-                  <div class="rating-scale">
-                     <label *ngFor="let option of question.options">
-                        <input class="form-control" type="radio" name="freq" [(ngModel)]="question.response"
-                           value="{{ option }}" />
-                        <span>{{ option }}</span>
-                     </label>
+<div class="flex-container">
+   <div class="flex-item item">
+      <form #surveyForm="ngForm">
+         <div *ngFor="let question of questions; let i = index">
+            <ng-container *ngIf="i === count">
+               <div class="card">
+                  <mat-label for="option" class="card-header">
+                     {{ question.question }}
+                  </mat-label>
+                  <ng-container *ngIf="question.inputType === 'select'">
+                     <mat-form-field>
+                        <mat-select name="habitSubject" [(ngModel)]="question.response">
+                           <mat-option value="" disabled selected>Select your option</mat-option>
+                           <mat-option *ngFor="let option of question.options; let in = index" [value]="option">
+                              {{ option }} <span *ngIf="question.optionDescription"> {{ question.optionDescription[in] }}
+                              </span></mat-option>
+                        </mat-select>
+                     </mat-form-field>
+                  </ng-container>
+                  <ng-container *ngIf="question.inputType === 'text'">
+                     <mat-form-field>
+                        <input matInput type="text" name="habitName" [(ngModel)]="question.response">
+                     </mat-form-field>
+                  </ng-container>
+                  <ng-container *ngIf="question.inputType === 'scale'">
+                     <div class="rating-scale">
+                        <label *ngFor="let option of question.options">
+                           <input class="form-control" type="radio" name="freq" [(ngModel)]="question.response"
+                              value="{{ option }}" />
+                           <span>{{ option }}</span>
+                        </label>
+                     </div>
+                  </ng-container>
+                  <div class="align-right" style="padding-top: 3rem;">
+                     <button (click)="helpMe(i)" class="btn btn-primary" [disabled]="!question.response">next!</button>
                   </div>
-               </ng-container>
-               <div class="align-right" style="padding-top: 3rem;">
-                  <button (click)="helpMe(i)" class="btn btn-primary" [disabled]="!question.response">next!</button>
                </div>
-            </div>
-         </ng-container>
-      </div>
-      <div *ngIf="checkBool()">
-         <h2>Commit to your habit!</h2>
-         <h4>You decided to create a new <span class="text-bold">{{ results[0] }}</span> habit!
-            You are going to <span class="text-bold">{{ results[1] }}</span>, on a <span
-               class="text-bold">{{ results[2] }}</span> basis! Confirm below to start your streak!</h4>
-         <div class="align-right" style="padding-top: 3rem;">
-            <button (click)="leavePlz(i)" class="btn btn-primary">let's do this!</button>
+            </ng-container>
          </div>
-      </div>
-   </form>
+         <div *ngIf="checkBool()" class="card">
+            <h1>Commit to your habit!</h1>
+            <h2>You decided to create a new <span class="text-bold">{{ results[0] }}</span> habit!
+               You are going to <span class="text-bold">{{ results[1] }}</span>, on a <span
+                  class="text-bold">{{ results[2] }}</span> basis! Confirm below to start your streak!</h2>
+            <div class="align-center" style="padding-top: 3rem;">
+               <button (click)="leavePlz(i)" class="btn btn-primary">let's do this!</button>
+            </div>
+         </div>
+      </form>
+   </div>
 </div>

@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 import { SurveyComponent } from './survey/survey.component';
 import { SurveyQuestionsComponent } from './survey/survey-questions/survey-questions.component';
 import { RouterModule } from '@angular/router';
-import { WelcomeComponent } from './survey/welcome/welcome.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SurveyService } from 'src/assets/services/streak.service';
 import { TrackerComponent } from './tracker/tracker.component';
@@ -25,7 +24,6 @@ import { ModalModule, BsModalRef } from  'ngx-bootstrap/modal';
     AppComponent,
     SurveyComponent,
     SurveyQuestionsComponent,
-    WelcomeComponent,
     TrackerComponent
   ],
   imports: [
@@ -43,10 +41,9 @@ import { ModalModule, BsModalRef } from  'ngx-bootstrap/modal';
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     RouterModule.forRoot([
       { path: 'survey', component: SurveyComponent },
-      { path: 'welcome', component: WelcomeComponent },
       { path: 'survey-questions', component: SurveyQuestionsComponent },
       { path: 'track', component: TrackerComponent },
-      { path: '', redirectTo: '/welcome', pathMatch: 'full' }
+      { path: '', redirectTo: '/survey', pathMatch: 'full' }
     ])
   ],
   providers: [SurveyService, ResultsService, BsModalRef],

@@ -4,5 +4,9 @@ $secondary: #b196d6;
 $active: #090e69;
 
 // util 
-$font: "Poppins", sans-serif;
+@font-face {
+    font-family: MADE-Dillan;
+    src:  url("src/assets/MADE_Dillan.otf")
+  }
+$font: MADE-Dillan, serif;
 $border: solid 1px #fff;

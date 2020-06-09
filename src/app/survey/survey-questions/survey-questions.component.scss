@@ -8,7 +8,7 @@ button.button {
   color: $secondary;
 
   &:active {
-    background: $secondary;
+    background: $active;
   }
   &:focus {
     outline: 0;
@@ -27,7 +27,7 @@ button.button {
   font-size: 0;
   padding-top: 2rem;
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
 
   & span {
     display: inline-block;
@@ -39,6 +39,7 @@ button.button {
     width: 6.5rem;
     background: $primary;
     color: #fff;
+    cursor: pointer;
 
     border-top: $border;
     border-bottom: $border;
@@ -62,11 +63,10 @@ button.button {
   text-align: right !important;
 }
 
-.container {
+.item {
   margin: 0 auto;
   float: none;
   margin-bottom: 1rem;
-  margin-top: 16rem;
   width: 50%;
   padding: 5rem;
   border-radius: .4rem;
@@ -75,4 +75,8 @@ button.button {
 
 .mat-label {
   font-size: 2.4rem;
+}
+.card {
+  color: $secondary;
+  font-size: 3rem !important;
 }
