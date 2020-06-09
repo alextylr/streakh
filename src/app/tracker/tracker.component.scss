@@ -60,6 +60,7 @@ body {
   margin: 0 auto;
   width: 50%;
   text-align: center;
+  padding-top: 2rem;
 }
 
 .margin {
@@ -68,4 +69,24 @@ body {
 
 .modal-body {
   color: $secondary;
+}
+
+@media only screen and (max-width: 600px) { 
+  .cal-month-view .cal-day-cell, .cal-month-view .cal-cell-top {
+    min-height: 5rem;
+  }
+  .cal-month-view .cal-day-number {
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+  .cal-head h1, h2 {
+    font-size: $font-size-header-mobile;
+  }
+  .btn-primary {
+    font-size: $font-size-mobile
+  }
+  .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }

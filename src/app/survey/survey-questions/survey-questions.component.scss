@@ -34,7 +34,7 @@ button.button {
     box-sizing: border-box;
     text-align: center;
     padding: 0.3em 0.8em;
-    font-size: 2.4rem;
+    font-size: $font-size-desktop;
     font-weight: 100;
     width: 6.5rem;
     background: $primary;
@@ -74,9 +74,47 @@ button.button {
 }
 
 .mat-label {
-  font-size: 2.4rem;
+  font-size: $font-size-desktop;
 }
 .card {
   color: $secondary;
-  font-size: 3rem !important;
+  font-size: $font-size-desktop;
+}
+
+@media only screen and (max-width: 600px) {
+  .flex-item {
+    &.item {
+      padding: 2rem;
+      margin: 2rem;
+      min-width: 85%;
+    }
+  } 
+  h1 { 
+    font-size: $font-size-header-mobile;
+  }
+  .btn-primary {
+    font-size: $font-size-mobile;
+  }
+
+  h2 {
+    font-size: $font-size-mobile;
+  }
+
+  mat-label.card-header {
+    font-size: $font-size-header-mobile;
+  }
+  
+  .mat- {
+    &form-field, &select, &option-text {
+      font-size: $font-size-mobile;
+    }
+  }
+  .rating-scale {
+    & span {
+      font-size: $font-size-mobile;
+    }
+  }
+  .card { 
+    font-size: $font-size-header-mobile;
+  }
 }

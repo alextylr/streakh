@@ -21,7 +21,7 @@ body {
 
 .btn-primary {
   color: #fff;
-  font-size: 2rem;
+  font-size: $font-size-desktop;
   background-color: $secondary;
   border-color: $secondary;
   &:active:focus,
@@ -47,11 +47,11 @@ mat- {
   &form-field,
   &select {
     display: block !important;
-    font-size: 3rem;
+    font-size: $font-size-desktop;
     color: $secondary;
   }
   &label.card-header {
-    font-size: 3.5rem;
+    font-size: $font-size-desktop;
     color: $secondary;
   }
 }
@@ -71,10 +71,10 @@ mat- {
 }
 
 mat-select-panel .mat-option {
-  font-size: 2.5rem;
+  font-size: $font-size-desktop;
 }
 .streak {
-  font-size: 2rem;
+  font-size: $font-size-desktop;
   padding: 3.5rem;
   background: #fff;
   height: 100%;
@@ -89,15 +89,15 @@ mat-select-panel .mat-option {
 /* app component scss */
 
 #welcome {
-    font-size: 8rem;
+    font-size: $font-size-desktop;
     color: #fff;
     padding-top: 25rem;
     text-align: center;
   }
 
   .flex-container {
-    font-size: 4.2rem;
-    line-height: 5.2rem;
+    font-size: $font-size-desktop;
+    // line-height: 5.2rem;
     height: 100%;
     color: #fff;
     text-align: center;
@@ -118,7 +118,7 @@ mat-select-panel .mat-option {
     border-radius: 1rem;
     color: #FFFFFF;
     text-align: center;
-    font-size: 2rem;
+    font-size: $font-size-desktop;
     padding: 2rem;
     width: 25rem;
     transition: all 0.5s;
@@ -163,7 +163,7 @@ mat-select-panel .mat-option {
     display: inline-block;
     color: #fff;
     text-align: center;
-    font-size: 4rem;
+    font-size: $font-size-desktop;
     padding: 3rem;
     transition: all .2s ease-in-out;
     cursor: pointer;
@@ -239,7 +239,17 @@ mat-select-panel .mat-option {
   }
 
   p {
-    font-size: 1.2rem
+    font-size: $font-size-desktop;
   } 
+  @media only screen and (max-width: 600px) {
+    .flex-item {
+      max-width: 90%;
+      &.item {
+        padding: 2rem;
+        margin: 2rem;
+        
+      }
+    } 
 
+  }
   
