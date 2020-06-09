@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, Input, ViewEncapsulation, ViewChild } from '@angular/core';
-import { CalendarEvent, CalendarView, CalendarEventAction, CalendarEventTimesChangedEvent } from 'angular-calendar';
+import { CalendarEvent, CalendarView, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarDateFormatter } from 'angular-calendar';
 import * as moment from 'moment';
 import {
   startOfDay,
@@ -7,13 +7,20 @@ import {
 } from 'date-fns';
 import { ResultsService } from 'src/assets/services/results.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { CustomDateFormatter } from '../custom-date-formatter.provider';
 
 
 @Component({
   selector: 'app-tracker',
   templateUrl: './tracker.component.html',
   styleUrls: ['./tracker.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers: [
+    {
+      provide: CalendarDateFormatter,
+      useClass: CustomDateFormatter,
+    }
+  ]
 })
 export class TrackerComponent implements OnInit {
   events: CalendarEvent[] = [];
