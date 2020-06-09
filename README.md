@@ -1,6 +1,6 @@
 # Streakh
 
-Streakh (the h is for aesthetics) is a tool created to help humans gradually build new habits! 
+Streakh (the h serves literally no purpose, I just think it looks cool) is a tool created to help humans gradually build new habits! 
 
 It prompts the user to answer specific questions about the habit they would like to implement to ensure they set small, achievable goals. Once the habit is established, the user can log each day that they complete the task a build up a streak(h)! 
 
