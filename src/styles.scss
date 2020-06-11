@@ -97,13 +97,16 @@ mat-select-panel .mat-option {
 
   .flex-container {
     font-size: $font-size-desktop;
-    // line-height: 5.2rem;
     height: 100%;
     color: #fff;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+  } 
+  
+  .align {
+    justify-content: space-between;
   }
 
   .flex-item {

@@ -15,7 +15,7 @@
 
 <div class="row">
   <div class="col-md-3">
-   
+
   </div>
   <div class="col-md-6">
     <div [ngSwitch]="view">
@@ -41,7 +41,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <h3>You did the <span class="text-bold">{{ results[1] }}</span> thing! So cool!</h3>
+    <h3>You did the <span class="text-bold">{{ this.results[1] }}</span> thing! So cool!</h3>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-secondary" (click)="close()">
@@ -51,10 +51,10 @@
 </ng-template>
 
 <div class="streakh" *ngIf="!disableLog">
-  <h2>Have you completed your habit yet?</h2>
+  <h2>Have you completed your <span class="text-bold">{{this.results[0]}}</span> habit, <span class="text-bold">{{this.results[1]}}</span> yet?</h2>
   <h2>if so, log your streak!</h2>
   <button [disabled]="disableLog" class="btn btn-primary margin" (click)="addEvent()">log!</button>
 </div>
 <div *ngIf="disableLog" class="streakh">
-  <h2>You have logged your {{ results[1] }} habit for today! You're killing it :)</h2>
+  <h2>You have logged your  <span class="text-bold">{{ this.results[1] }}</span> habit for today! You're killing it :)</h2>
 </div>

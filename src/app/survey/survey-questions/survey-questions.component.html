@@ -31,19 +31,24 @@
                         </label>
                      </div>
                   </ng-container>
-                  <div class="align-right" style="padding-top: 3rem;">
-                     <button (click)="helpMe(i)" class="btn btn-primary" [disabled]="!question.response">next!</button>
+                  <div class="flex-container align">
+                <div class="flex-item" style="padding-top: 3rem;">
+                    <!--  <button (click)="previousQuestion()" class="btn btn-primary" [disabled]="i < 1">back!</button> -->
+                     </div>
+                  <div class="flex-item" style="padding-top: 3rem;">
+                     <button (click)="incrementQuestion(i)" class="btn btn-primary" [disabled]="!question.response">next!</button>
+                  </div>
                   </div>
                </div>
             </ng-container>
          </div>
-         <div *ngIf="checkBool()" class="card">
+         <div *ngIf="this.done" class="card">
             <h1>Commit to your habit!</h1>
             <h2>You decided to create a new <span class="text-bold">{{ results[0] }}</span> habit!
                You are going to <span class="text-bold">{{ results[1] }}</span>, on a <span
                   class="text-bold">{{ results[2] }}</span> basis! Confirm below to start your streak!</h2>
             <div class="align-center" style="padding-top: 3rem;">
-               <button (click)="leavePlz(i)" class="btn btn-primary">let's do this!</button>
+               <button (click)="commitHabit(i)" class="btn btn-primary">let's do this!</button>
             </div>
          </div>
       </form>

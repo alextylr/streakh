@@ -1,13 +1,13 @@
-import { Component, OnInit, TemplateRef, Input, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, Input, ViewEncapsulation, ViewChild, OnChanges } from '@angular/core';
 import { CalendarEvent, CalendarView, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarDateFormatter } from 'angular-calendar';
 import * as moment from 'moment';
 import {
   startOfDay,
   endOfDay
 } from 'date-fns';
-import { ResultsService } from 'src/assets/services/results.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CustomDateFormatter } from '../custom-date-formatter.provider';
+import { SurveyService } from '../../assets/streak.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ import { CustomDateFormatter } from '../custom-date-formatter.provider';
     }
   ]
 })
-export class TrackerComponent implements OnInit {
+export class TrackerComponent implements OnInit, OnChanges {
   events: CalendarEvent[] = [];
 
   @Input() headerTemplate: TemplateRef<any>;
@@ -31,7 +31,6 @@ export class TrackerComponent implements OnInit {
 
   now: string;
 
-  // to do : implement modal popup when user logs their streak
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
   modalRef: BsModalRef;
 
@@ -46,50 +45,33 @@ export class TrackerComponent implements OnInit {
     event: CalendarEvent;
   };
 
-  actions: CalendarEventAction[] = [
-    {
-      label: '<i class="fa fa-fw fa-pencil"></i>',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent('Edited', event);
-      }
-    },
-    {
-      label: '<i class="fa fa-fw fa-times"></i>',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.events = this.events.filter(iEvent => iEvent !== event);
-        this.handleEvent('Deleted', event);
-      }
-    }
-  ];
+  // actions: CalendarEventAction[] = [
+  //   {
+  //     label: '<i class="fa fa-fw fa-pencil"></i>',
+  //     onClick: ({ event }: { event: CalendarEvent }): void => {
+  //       this.handleEvent('Edited', event);
+  //     }
+  //   },
+  //   {
+  //     label: '<i class="fa fa-fw fa-times"></i>',
+  //     onClick: ({ event }: { event: CalendarEvent }): void => {
+  //       this.events = this.events.filter(iEvent => iEvent !== event);
+  //       this.handleEvent('Deleted', event);
+  //     }
+  //   }
+  // ];
 
   activeDayIsOpen: boolean = false;
   disableLog: boolean;
 
-  constructor(private result: ResultsService, private modalService: BsModalService) { }
+  constructor(private surveyService: SurveyService, private modalService: BsModalService) { }
 
 
   ngOnInit() {
     this.now = moment().format('MMMM YYYY');
-    this.results = this.result.getResults();
+    this.results = this.surveyService.getResults();
+    console.log(this.results, 'tracker');
   }
-
-  // eventTimesChanged({
-  //   event,
-  //   newStart,
-  //   newEnd
-  // }: CalendarEventTimesChangedEvent): void {
-  //   this.events = this.events.map(iEvent => {
-  //     if (iEvent === event) {
-  //       return {
-  //         ...event,
-  //         start: newStart,
-  //         end: newEnd
-  //       };
-  //     }
-  //     return iEvent;
-  //   });
-  //   this.handleEvent('Dropped or resized', event);
-  // }
 
   handleEvent(action: string, event: CalendarEvent): void {
     console.log({ event, action });
@@ -97,7 +79,6 @@ export class TrackerComponent implements OnInit {
   }
 
   addEvent(): void {
-    if (this.events.length === 0) {
       let habitName = this.results[1];
       this.events = [
         ...this.events,
@@ -113,10 +94,12 @@ export class TrackerComponent implements OnInit {
           }
         }
       ];
-      
-      this.disableLog = true;
-    }   
+    this.disableLog = true;
     this.modalRef = this.modalService.show(this.modalContent);
+  }
+
+  ngOnChanges() {
+    
   }
 
   setView(view: CalendarView) {

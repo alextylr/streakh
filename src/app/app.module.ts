@@ -12,11 +12,11 @@ import { SurveyComponent } from './survey/survey.component';
 import { SurveyQuestionsComponent } from './survey/survey-questions/survey-questions.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { SurveyService } from 'src/assets/services/streak.service';
+import { SurveyService } from 'src/assets/streak.service';
 import { TrackerComponent } from './tracker/tracker.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { ResultsService } from 'src/assets/services/results.service';
+import { ResultsService } from 'src/assets/results.service';
 import { ModalModule, BsModalRef } from  'ngx-bootstrap/modal';
 
 @NgModule({
