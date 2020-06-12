@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef, Input, ViewEncapsulation, ViewChild, OnChanges } from '@angular/core';
-import { CalendarEvent, CalendarView, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarDateFormatter } from 'angular-calendar';
+import { CalendarEvent, CalendarView, CalendarDateFormatter } from 'angular-calendar';
 import * as moment from 'moment';
 import {
   startOfDay,
@@ -22,7 +22,7 @@ import { SurveyService } from '../../assets/streak.service';
     }
   ]
 })
-export class TrackerComponent implements OnInit, OnChanges {
+export class TrackerComponent implements OnInit {
   events: CalendarEvent[] = [];
 
   @Input() headerTemplate: TemplateRef<any>;
@@ -45,21 +45,7 @@ export class TrackerComponent implements OnInit, OnChanges {
     event: CalendarEvent;
   };
 
-  // actions: CalendarEventAction[] = [
-  //   {
-  //     label: '<i class="fa fa-fw fa-pencil"></i>',
-  //     onClick: ({ event }: { event: CalendarEvent }): void => {
-  //       this.handleEvent('Edited', event);
-  //     }
-  //   },
-  //   {
-  //     label: '<i class="fa fa-fw fa-times"></i>',
-  //     onClick: ({ event }: { event: CalendarEvent }): void => {
-  //       this.events = this.events.filter(iEvent => iEvent !== event);
-  //       this.handleEvent('Deleted', event);
-  //     }
-  //   }
-  // ];
+  localStorageEvents = []
 
   activeDayIsOpen: boolean = false;
   disableLog: boolean;
@@ -70,7 +56,7 @@ export class TrackerComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.now = moment().format('MMMM YYYY');
     this.results = this.surveyService.getResults();
-    console.log(this.results, 'tracker');
+    this.formatEvents();   
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
@@ -79,28 +65,21 @@ export class TrackerComponent implements OnInit, OnChanges {
   }
 
   addEvent(): void {
-      let habitName = this.results[1];
-      this.events = [
-        ...this.events,
-        {
-          title: habitName,
-          start: startOfDay(new Date()),
-          end: endOfDay(new Date()),
-          color: colors.purple,
-          draggable: false,
-          resizable: {
-            beforeStart: false,
-            afterEnd: false
-          }
-        }
-      ];
+    let habitName = this.results[1];
+    this.events = [
+      ...this.events,
+      {
+        title: habitName,
+        start: startOfDay(new Date()),
+        end: endOfDay(new Date()),
+        color: colors.purple
+      }
+    ];
     this.disableLog = true;
     this.modalRef = this.modalService.show(this.modalContent);
+    localStorage.setItem('habitEvents', JSON.stringify(this.events));
   }
 
-  ngOnChanges() {
-    
-  }
 
   setView(view: CalendarView) {
     this.view = view;
@@ -113,9 +92,22 @@ export class TrackerComponent implements OnInit, OnChanges {
   close() {
     this.modalRef.hide();
   }
+
+
+  formatEvents() {
+  this.localStorageEvents = JSON.parse(localStorage.getItem('habitEvents'))
+  if (this.localStorageEvents) {
+    this.events = this.localStorageEvents.map(event => {
+      return {
+        ...event,
+        start: new Date(event.start),
+        end: new Date(event.end)
+      }
+    });
+  }
+  }
+
 }
-
-
 const colors: any = {
   purple: {
     primary: '#3f51b5',

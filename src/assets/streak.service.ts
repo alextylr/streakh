@@ -7,9 +7,6 @@ export class SurveyService {
     results: any[] = []
 
    constructor(private http: HttpClient) {
-        // this.getSurvey().subscribe(data => {
-           
-        // });
     }
 
     public getSurvey(): Observable<any> {
