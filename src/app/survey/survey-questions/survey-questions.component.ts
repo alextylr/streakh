@@ -73,8 +73,7 @@ export class SurveyQuestionsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.survey.getSurvey().subscribe(survey => this.questions = survey);
-    // this.results = this.surveyService.getResults();
+    
   }
 
   incrementQuestion(index: any) {
@@ -133,18 +132,12 @@ export class SurveyQuestionsComponent implements OnInit {
     }
   }
 
-  // previousQuestion() {
-  //   if (this.count > 0) {
-  //     this.count--;
-  //   }
-  // }
 
   commitHabit(i) {
     if (this.done) {
       this.surveyService.saveResults(this.results);
       this.router.navigateByUrl('track');
     }
-    // console.log(this.results, 'fdoj')
   }
 
 }

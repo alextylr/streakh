@@ -175,6 +175,10 @@ mat-select-panel .mat-option {
     }
   } 
 
+  .btn-primary:active:focus, .btn-primary:hover {
+    outline: none !important;
+  }
+
   
   @-webkit-keyframes fadeIn {
     from {
