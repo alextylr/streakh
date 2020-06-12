@@ -3,7 +3,8 @@ import { CalendarEvent, CalendarView, CalendarDateFormatter } from 'angular-cale
 import * as moment from 'moment';
 import {
   startOfDay,
-  endOfDay
+  endOfDay,
+  isSameDay
 } from 'date-fns';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CustomDateFormatter } from '../custom-date-formatter.provider';
@@ -98,6 +99,9 @@ export class TrackerComponent implements OnInit {
   this.localStorageEvents = JSON.parse(localStorage.getItem('habitEvents'))
   if (this.localStorageEvents) {
     this.events = this.localStorageEvents.map(event => {
+      if (isSameDay(this.viewDate, event.start)) { 
+        this.disableLog = true;
+      }
       return {
         ...event,
         start: new Date(event.start),
